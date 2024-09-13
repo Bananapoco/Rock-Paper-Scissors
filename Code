@@ -1,0 +1,50 @@
+import random
+
+moves = ("Rock", "Paper", "Scissors")
+computerMove = random.randint(0, 2)
+playerWins = None
+
+def CalculateWinner():
+    if computerMove == 0 and playerMove == 1:
+        playerWins = True
+    elif computerMove == 0 and playerMove == 2:
+        playerWins = False
+    elif computerMove == 1 and playerMove == 0:
+        playerWins = False
+    elif computerMove == 1 and playerMove == 2:
+        playerWins = True
+    elif computerMove == 2 and playerMove == 0:
+        playerWins = True
+    elif computerMove == 2 and playerMove == 1:
+        playerWins = False
+                
+        
+def PrintWinner():
+    if(playerWins):
+        print("\nYou won! :D")
+    elif(playerWins == False):
+        print("\nYou lose :(")
+    else:
+        print("\nTie :O")
+
+
+#def CheckForInvalidInput():
+    #if playerMove != 0 or 1 or 2:
+        #print("\n[INVALID INPUT. PLEASE TRY AGAIN]")
+        #exit()
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+print("Welcome to Rock, Paper, Scissors!")
+print("0 = Rock, 1 = Paper, and 2 = Scissors")
+print("\nPlease enter your numerical input: ")
+
+playerMove = int(input())
+
+#CheckForInvalidInput()
+
+print("\nYour move: " + moves[playerMove])
+print("Computer move: " + moves[computerMove])
+
+CalculateWinner()
+PrintWinner()
