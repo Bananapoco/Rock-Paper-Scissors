@@ -5,6 +5,10 @@ computerMove = random.randint(0, 2)
 playerWins = None
 
 def CalculateWinner():
+    # If you are editing a variable from a seperate function, you have to make it global
+
+    global playerWins
+    
     if computerMove == 0 and playerMove == 1:
         playerWins = True
     elif computerMove == 0 and playerMove == 2:
@@ -17,7 +21,16 @@ def CalculateWinner():
         playerWins = True
     elif computerMove == 2 and playerMove == 1:
         playerWins = False
-                
+
+def other():
+
+    if playerMove != 2:
+        if playerMove > computerMove:
+            return True
+    else:
+        if playerMove < computerMove:
+            return True
+    return False
         
 def PrintWinner():
     if(playerWins):
@@ -26,7 +39,6 @@ def PrintWinner():
         print("\nYou lose :(")
     else:
         print("\nTie :O")
-
 
 #def CheckForInvalidInput():
     #if playerMove != 0 or 1 or 2:
@@ -46,5 +58,6 @@ playerMove = int(input())
 print("\nYour move: " + moves[playerMove])
 print("Computer move: " + moves[computerMove])
 
+#playerWins = other()
 CalculateWinner()
 PrintWinner()
